@@ -1,5 +1,6 @@
 import { expect } from 'chai';
-import Trie from '../lib/Trie'
+import Trie from '../lib/Trie'; 
+import Node from '../lib/Node'; 
 
 describe('TRIE', () => {
   let trie;
@@ -8,17 +9,29 @@ describe('TRIE', () => {
   });
   it('should exist', () => {
     expect(trie).to.exist;
-  })
+  }); 
+
   it('should start with zero elements', () => {
-    expect(trie.totalWords).to.equal(0);
+    expect(trie.totalWords).to.eq(0);
   });
-  it('should set its default root to null', () => {
-    expect(trie.root).to.eq(null);
+
+  it('should set its default root to empty object', () => {
+    expect(trie.root.letter).to.deep.eq({null});
   });
+
   it('should increase totalWords each time we instantiate a new word', () => {
     expect(trie.totalWords).to.eq(0);
     trie.insert('poop')
     expect(trie.totalWords).to.eq(1)
+  });
+
+  it('should be able to insort words', () => {
+    trie.insert('hello');
+    trie.insert('happy');
+
+    let h = new Node('h')
+
+    expect(trie.root).to.eq(h)
   });
  
   // describe.skip('UNSHIFT', () => {

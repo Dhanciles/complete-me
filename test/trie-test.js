@@ -27,7 +27,7 @@ describe('TRIE', () => {
     expect(trie.totalWords).to.eq(1)
   });
 
-  it('should insert word correctly when calling insert', () => {
+  it('should create a new branch for each new first letter', () => {
     trie.insert('need');
     trie.insert('happy'); 
     trie.insert('cool'); 

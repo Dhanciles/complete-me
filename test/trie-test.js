@@ -17,23 +17,26 @@ describe('TRIE', () => {
     expect(trie.totalWords).to.equal(0);
   });
 
-  it('should set its default root to empty object', () => {
-    expect(trie.root.children).to.deep.eq({});
-  });
-
   it('should increase totalWords each time we instantiate a new word', () => {
     expect(trie.totalWords).to.eq(0);
     trie.insert('hello')
     expect(trie.totalWords).to.eq(1)
   });
 
-  it('should create a new branch for each new first letter', () => {
+  it('should insert a word by invoking the insert method', () => {
     trie.insert('need');
-    trie.insert('nap'); 
-    trie.insert('cool'); 
+     
+    expect(trie.root).to.have.property('n')
+  }); 
 
+  it('should suggest an array of words', () => {
+    trie.insert('lap'); 
+    trie.insert('lost'); 
+    trie.insert('calm'); 
+
+    let response = trie.suggest('l'); 
     console.log(JSON.stringify(trie, null, 4))
-    expect(Object.keys(trie.root.children)).to.deep.eq(['n','c'])
+    expect(response).to.deep.eq(['lap', 'lost']); 
   })
 
 //   it('should ')

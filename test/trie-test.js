@@ -29,11 +29,11 @@ describe('TRIE', () => {
 
   it('should create a new branch for each new first letter', () => {
     trie.insert('need');
-    trie.insert('happy'); 
+    trie.insert('nap'); 
     trie.insert('cool'); 
 
     console.log(JSON.stringify(trie, null, 4))
-    expect(Object.keys(trie.root.children)).to.deep.eq(['n', 'h', 'c'])
+    expect(Object.keys(trie.root.children)).to.deep.eq(['n','c'])
   })
 
 //   it('should ')

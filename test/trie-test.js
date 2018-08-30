@@ -34,13 +34,15 @@ describe('TRIE', () => {
   }); 
 
   it('should suggest an array of words', () => {
-    trie.insert('lap'); 
-    trie.insert('lost'); 
-    trie.insert('calm'); 
+    trie.insert('bad'); 
+    trie.insert('bald'); 
+    trie.insert('ball');
+    trie.insert('ice'); 
+    trie.insert('igloo'); 
+    trie.insert('bike')
 
-    let response = trie.suggest('l'); 
-    // console.log(JSON.stringify(trie, null, 4))
-    expect(response).to.deep.eq(['lap', 'lost']); 
+    let response = trie.suggest('ba'); 
+    expect(response).to.deep.eq(['bad', 'bald', 'ball']); 
   }); 
 
   it('should populate with words', () => {

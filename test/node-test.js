@@ -16,7 +16,4 @@ describe('NODE', () => {
     expect(node.end).to.equal(false)
   })
 
-  it('should default children to an empty object', () => {
-    expect(node.children).to.deep.equal({});
-  })
 })
